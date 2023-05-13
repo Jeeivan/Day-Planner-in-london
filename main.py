@@ -1,5 +1,10 @@
 restaurants = ("Tayyabs", "Rasa", "Dishoom", "Xi' and impression", "Silk Road", "New Ming", "Trullo", "Manteca", "Ciao Bella")
 
+iterated_restuarants = []
+
+for restaurant in restaurants:
+    iterated_restuarants.append(restaurant)
+
 restaurant_cuisine = {
     "Indian": ["Tayyabs", "Rasa", "Dishoom"],
     "Chinese": ["Xi'an Impression", "Silk Road", "New Ming"],
@@ -72,6 +77,11 @@ def getFancy():
             fancy_restaurants.append(restaurant + ": " + price)
     return fancy_restaurants
 
+def getLocation():
+    for restaurant in restaurants:
+        print(restaurant)
+    chooseRestaurant = input("Which restaurant would you like to know the nearest tube station to? Please enter the exact name of the restaurant. ")
+    return restaurant_tube_stations[chooseRestaurant]
 
 def menu():
     print("Welcome to my London food guide!")
@@ -79,9 +89,11 @@ def menu():
     print("2. Select cuisine")
     print("3. Are times tough?")
     print("4. Feeling fancy?")
+    print("5. Get nearest tube station to restaurant")
     usersInput = input("Enter your option here: ")
     if usersInput == "1":
-        print(restaurants)
+        for restaurant in restaurants:
+            print(restaurant)
     elif usersInput == "2":
         cuisine = getCuisine()
         if isinstance(cuisine, list):
@@ -97,6 +109,8 @@ def menu():
         fancy_restaurants = getFancy()
         for restaurant in fancy_restaurants:
             print(restaurant)
+    elif usersInput == "5":
+        print(getLocation())
     else:
         print("That is not an option! Please select a number from the menu above :)")
     menu()
