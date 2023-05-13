@@ -40,23 +40,37 @@ def getCuisine():
     chooseCuisine = input("What cuisine are you feeling? Select 'Indian', 'Chinese' or 'Italian'. ")
     if chooseCuisine == "Indian":
         print("Indian restaurants:")
-        for restaurant in indian_restaurants:
-            print("- " + restaurant)
-    if chooseCuisine == "Chinese":
-        print("Indian restaurants:")
-        for restaurant in chinese_restaurants:
-            print("- " + restaurant)
-    if chooseCuisine == "Italian":
-        print("Indian restaurants:")
-        for restaurant in italian_restaurants:
-            print("- " + restaurant)
+        return indian_restaurants
+    elif chooseCuisine == "Chinese":
+        print("Chinese restaurants:")
+        return chinese_restaurants
+    elif chooseCuisine == "Italian":
+        print("Italian restaurants:")
+        return italian_restaurants
     else:
-        return "This is not an option! Please select from a cusisine listed above."
+        return "This is not an option! Please select from a cuisine listed above."
 
 
 def getCheapest():
-    print("Here are the restaurants from lowest to highest")
+    cheapest_restaurants = []
+    print("Here are the restaurants that you can spend under £30:")
+    for restaurant, price in restaurant_prices.items():
+        price_range = price.replace("£", "")
+        price_values = price_range.split("-")
+        min_price = int(price_values[0])
+        if min_price < 30:
+            cheapest_restaurants.append(restaurant + ": " + price)
+    return cheapest_restaurants
 
+def getFancy():
+    fancy_restaurants = []
+    for restaurant, price in restaurant_prices.items():
+        price_range = price.replace("£", "")
+        price_values = price_range.split("-")
+        min_price = int(price_values[0])
+        if min_price >= 30:
+            fancy_restaurants.append(restaurant + ": " + price)
+    return fancy_restaurants
 
 
 def menu():
@@ -68,14 +82,24 @@ def menu():
     usersInput = input("Enter your option here: ")
     if usersInput == "1":
         print(restaurants)
-    if usersInput == "2":
-        print(getCuisine())
-    if usersInput == "3":
-        print(restaurants)
-    if usersInput == "4":
-        print(restaurants)
+    elif usersInput == "2":
+        cuisine = getCuisine()
+        if isinstance(cuisine, list):
+            for restaurant in cuisine:
+                print("- " + restaurant)
+        else:
+            print(cuisine)
+    elif usersInput == "3":
+        cheapest_restaurants = getCheapest()
+        for restaurant in cheapest_restaurants:
+            print(restaurant)
+    elif usersInput == "4":
+        fancy_restaurants = getFancy()
+        for restaurant in fancy_restaurants:
+            print(restaurant)
     else:
         print("That is not an option! Please select a number from the menu above :)")
+    menu()
 
 menu()
     
