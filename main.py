@@ -1,16 +1,14 @@
 restaurants = ("Tayyabs", "Rasa", "Dishoom", "Xi' and impression", "Silk Road", "New Ming", "Trullo", "Manteca", "Ciao Bella")
 
 restaurant_cuisine = {
-    "Tayyabs": "Indian",
-    "Rasa": "Indian",
-    "Dishoom": "Indian",
-    "Xi'an Impression": "Chinese",
-    "Silk Road": "Chinese",
-    "New Ming": "Chinese",
-    "Trullo": "Italian",
-    "Manteca": "Italian",
-    "Ciao Bella": "Italian"
+    "Indian": ["Tayyabs", "Rasa", "Dishoom"],
+    "Chinese": ["Xi'an Impression", "Silk Road", "New Ming"],
+    "Italian": ["Trullo", "Manteca", "Ciao Bella"]
 }
+
+indian_restaurants = restaurant_cuisine["Indian"]
+chinese_restaurants = restaurant_cuisine["Chinese"]
+italian_restaurants = restaurant_cuisine["Italian"]
 
 restaurant_prices = {
     "Tayyabs" : "£20-30",
@@ -37,6 +35,30 @@ restaurant_tube_stations = {
     "Ciao Bella": "Tottenham Court Road"
 }
 
+def getCuisine():
+    print("Cuisines to choose from: Indian, Chinese, Italian")
+    chooseCuisine = input("What cuisine are you feeling? Select 'Indian', 'Chinese' or 'Italian'. ")
+    if chooseCuisine == "Indian":
+        print("Indian restaurants:")
+        for restaurant in indian_restaurants:
+            print("- " + restaurant)
+    if chooseCuisine == "Chinese":
+        print("Indian restaurants:")
+        for restaurant in chinese_restaurants:
+            print("- " + restaurant)
+    if chooseCuisine == "Italian":
+        print("Indian restaurants:")
+        for restaurant in italian_restaurants:
+            print("- " + restaurant)
+    else:
+        return "This is not an option! Please select from a cusisine listed above."
+
+
+def getCheapest():
+    print("Here are the restaurants from lowest to highest")
+
+
+
 def menu():
     print("Welcome to my London food guide!")
     print("1. List all restaurants")
@@ -47,11 +69,13 @@ def menu():
     if usersInput == "1":
         print(restaurants)
     if usersInput == "2":
-        print(restaurants)
+        print(getCuisine())
     if usersInput == "3":
         print(restaurants)
     if usersInput == "4":
         print(restaurants)
     else:
         print("That is not an option! Please select a number from the menu above :)")
+
+menu()
     
