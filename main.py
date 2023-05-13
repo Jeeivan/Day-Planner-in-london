@@ -36,3 +36,22 @@ restaurant_tube_stations = {
     "Manteca": "Barbican",
     "Ciao Bella": "Tottenham Court Road"
 }
+
+def menu():
+    print("Welcome to my London food guide!")
+    print("1. List all restaurants")
+    print("2. Select cuisine")
+    print("3. Are times tough?")
+    print("4. Feeling fancy?")
+    usersInput = input("Enter your option here: ")
+    if usersInput == "1":
+        print(restaurants)
+    if usersInput == "2":
+        print(restaurants)
+    if usersInput == "3":
+        print(restaurants)
+    if usersInput == "4":
+        print(restaurants)
+    else:
+        print("That is not an option! Please select a number from the menu above :)")
+    
