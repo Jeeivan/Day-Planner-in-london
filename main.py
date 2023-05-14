@@ -50,7 +50,7 @@ def getCuisine():
         print("Chinese restaurants:")
         return chinese_restaurants
     elif chooseCuisine == "Italian":
-        print("Italian restaurants:")
+        # print("Italian restaurants:")
         return italian_restaurants
     else:
         return "This is not an option! Please select from a cuisine listed above."
@@ -160,7 +160,7 @@ def getActivity():
         print("Sights and Landmarks:")
         return activities["sights and landmarks"]
     elif chooseTheme == "games":
-        print("Fun and Games:")
+        # print("Fun and Games:")
         return activities["fun and games"]
     else:
         return "This is not an option! Please select from 'nightlife' or 'sights' or 'games'.  "
@@ -174,9 +174,24 @@ def menu():
             for activity in activities:
                 print("- " + activity)
     elif usersinput == 'restaurant':
-        return
+        cuisine = getCuisine()
+        if isinstance(cuisine, list):
+            for restaurant in cuisine:
+                print("- " + restaurant)
+        else:
+            print(cuisine)
     elif usersinput == 'both':
-        return
+        activities = getActivity()
+        cuisine = getCuisine()
+        if isinstance(activities, list) and isinstance(cuisine, list):
+            print("Activities:")
+            for activity in activities:
+                print("- " + activity)
+            print("\nRestaurants:")
+            for restaurant in cuisine:
+                print("- " + restaurant)
+        else:
+            print("Invalid selection!")
     else:
         print("This is not an option! Please select 'activity', 'restuarant', or 'both'. ")
     menu()
