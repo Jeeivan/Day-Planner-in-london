@@ -87,37 +87,66 @@ def getLocation():
     else:
         return "You have not selected a restaurant from the list above! Please make sure it is spelt the same way."
 
-def menu():
-    print("Welcome to my London food guide!")
-    print("1. List all restaurants")
-    print("2. Select cuisine")
-    print("3. Are times tough?")
-    print("4. Feeling fancy?")
-    print("5. Get nearest tube station to restaurant")
-    usersInput = input("Enter your option here: ")
-    if usersInput == "1":
-        for restaurant in restaurants:
-            print(restaurant)
-    elif usersInput == "2":
-        cuisine = getCuisine()
-        if isinstance(cuisine, list):
-            for restaurant in cuisine:
-                print("- " + restaurant)
-        else:
-            print(cuisine)
-    elif usersInput == "3":
-        cheapest_restaurants = getCheapest()
-        for restaurant in cheapest_restaurants:
-            print(restaurant)
-    elif usersInput == "4":
-        fancy_restaurants = getFancy()
-        for restaurant in fancy_restaurants:
-            print(restaurant)
-    elif usersInput == "5":
-        print(getLocation())
-    else:
-        print("That is not an option! Please select a number from the menu above :)")
-    menu()
+# def menu():
+#     print("Welcome to my London food guide!")
+#     print("1. List all restaurants")
+#     print("2. Select cuisine")
+#     print("3. Are times tough?")
+#     print("4. Feeling fancy?")
+#     print("5. Get nearest tube station to restaurant")
+#     usersInput = input("Enter your option here: ")
+#     if usersInput == "1":
+#         for restaurant in restaurants:
+#             print(restaurant)
+#     elif usersInput == "2":
+#         cuisine = getCuisine()
+#         if isinstance(cuisine, list):
+#             for restaurant in cuisine:
+#                 print("- " + restaurant)
+#         else:
+#             print(cuisine)
+#     elif usersInput == "3":
+#         cheapest_restaurants = getCheapest()
+#         for restaurant in cheapest_restaurants:
+#             print(restaurant)
+#     elif usersInput == "4":
+#         fancy_restaurants = getFancy()
+#         for restaurant in fancy_restaurants:
+#             print(restaurant)
+#     elif usersInput == "5":
+#         print(getLocation())
+#     else:
+#         print("That is not an option! Please select a number from the menu above :)")
+#     menu()
 
-menu()
+# menu()
 
+activities = {
+    "nightlife" : ["Be at One", "Moonshine Saloon", "ABQ London"],
+    "sights and landmarks" : ["The Shard", "London Eye", "Sky Garden"],
+    "fun and games" : ["Fairground", "Flight Club", "Puttshack"]
+}
+
+activity_prices = {
+    "Be at One": "£10", 
+    "Moonshine Saloon": "£15", 
+    "ABQ London": "£20", 
+    "The Shard": "£30", 
+    "London Eye": "£25",  
+    "Sky Garden": "£20",  
+    "Fairground": "£15",  
+    "Flight Club": "£25", 
+    "Puttshack": "£18"
+}
+
+activity_tube_stations = {
+    "Be at One": "Covent Garden",  
+    "Moonshine Saloon": "Borough",  
+    "ABQ London": "Hackney Wick",  
+    "The Shard": "London Bridge",
+    "London Eye": "Waterloo",
+    "Sky Garden": "Bank", 
+    "Fairground": "Oxford Circus",  
+    "Flight Club": "Shoreditch High Street",  
+    "Puttshack": "White City" 
+}
