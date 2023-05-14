@@ -150,3 +150,35 @@ activity_tube_stations = {
     "Flight Club": "Shoreditch High Street",  
     "Puttshack": "White City" 
 }
+
+def getActivity():
+    chooseTheme = input("What theme of activity are you looking for? Please select from 'nightlife' or 'sights' or 'games'. ")
+    if chooseTheme == "nightlife":
+        print("Nightlife:")
+        return activities["nightlife"]
+    elif chooseTheme == "sights":
+        print("Sights and Landmarks:")
+        return activities["sights and landmarks"]
+    elif chooseTheme == "games":
+        print("Fun and Games:")
+        return activities["fun and games"]
+    else:
+        return "This is not an option! Please select from 'nightlife' or 'sights' or 'games'.  "
+
+def menu():
+    print("Welcome to Jeeivan's guide for going out in London!")
+    usersinput = input("Are you looking to do an activity or go to a restuarant or both? Please select 'activity', 'restuarant', or 'both'. ")
+    if usersinput == 'activity':
+        activities = getActivity()
+        if isinstance(activities, list):
+            for activity in activities:
+                print("- " + activity)
+    elif usersinput == 'restaurant':
+        return
+    elif usersinput == 'both':
+        return
+    else:
+        print("This is not an option! Please select 'activity', 'restuarant', or 'both'. ")
+    menu()
+
+menu()
