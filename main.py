@@ -81,7 +81,11 @@ def getLocation():
     for restaurant in restaurants:
         print(restaurant)
     chooseRestaurant = input("Which restaurant would you like to know the nearest tube station to? Please enter the exact name of the restaurant. ")
-    return restaurant_tube_stations[chooseRestaurant]
+    # return restaurant_tube_stations[chooseRestaurant]
+    if chooseRestaurant in restaurant_tube_stations:
+        return restaurant_tube_stations[chooseRestaurant]
+    else:
+        return "You have not selected a restaurant from the list above! Please make sure it is spelt the same way."
 
 def menu():
     print("Welcome to my London food guide!")
@@ -116,4 +120,4 @@ def menu():
     menu()
 
 menu()
-    
+
