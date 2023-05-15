@@ -1,10 +1,5 @@
 restaurants = ("Tayyabs", "Rasa", "Dishoom", "Xi' and impression", "Silk Road", "New Ming", "Trullo", "Manteca", "Ciao Bella")
 
-iterated_restuarants = []
-
-for restaurant in restaurants:
-    iterated_restuarants.append(restaurant)
-
 restaurant_cuisine = {
     "Indian": ["Tayyabs", "Rasa", "Dishoom"],
     "Chinese": ["Xi'an Impression", "Silk Road", "New Ming"],
@@ -28,6 +23,23 @@ restaurant_prices = {
 
 }
 
+indian_restaurant_prices = {
+    "Tayyabs" : "£20-30",
+    "Rasa" : "£15-25",
+    "Dishoom" : "£20-30"}
+
+chinese_restaurant_prices = {
+    "Xi' and impression" : "£15-25",
+    "Silk Road" : "£15-25",
+    "New Ming" : "£10-20"
+}
+
+italian_restaurant_prices = {
+     "Trullo" : "£30-40",
+    "Manteca" : "£40-50",
+    "Ciao Bella" : "£20-30"
+}
+
 restaurant_tube_stations = {
     "Tayyabs": "Whitechapel",
     "Rasa": "St. John's Wood",
@@ -40,14 +52,77 @@ restaurant_tube_stations = {
     "Ciao Bella": "Tottenham Court Road"
 }
 
+indian_restaurant_tube_stations = {
+    "Tayyabs": "Whitechapel",
+    "Rasa": "St. John's Wood",
+    "Dishoom": "Covent Garden"
+}
+
+chinese_restaurant_tube_stations = {
+    "Xi' and impression": "Highbury & Islington",
+    "Silk Road": "London Bridge",
+    "New Ming": "Abbey Wood"
+}
+
+italian_restaurant_tube_stations = {
+    "Trullo": "Highbury & Islington",
+    "Manteca": "Barbican",
+    "Ciao Bella": "Tottenham Court Road"
+}
+
+indian_restaurants = {
+    "Tayyabs": {
+        "price": "£20-30",
+        "tube_station": "Whitechapel"
+    },
+    "Rasa": {
+        "price": "£15-25",
+        "tube_station": "St. John's Wood"
+    },
+    "Dishoom": {
+        "price": "£20-30",
+        "tube_station": "Covent Garden"
+    }
+}
+
+chinese_restaurants = {
+    "Xi' and impression": {
+        "price": "£15-25",
+        "tube_station": "Highbury & Islington"
+    },
+    "Silk Road": {
+        "price": "£15-25",
+        "tube_station": "London Bridge"
+    },
+    "New Ming": {
+        "price": "£10-20",
+        "tube_station": "Abbey Wood"
+    }
+}
+
+italian_restaurants = {
+    "Trullo": {
+        "price": "£30-40",
+        "tube_station": "Highbury & Islington"
+    },
+    "Manteca": {
+        "price": "£40-50",
+        "tube_station": "Barbican"
+    },
+    "Ciao Bella": {
+        "price": "£20-30",
+        "tube_station": "Tottenham Court Road"
+    }
+}
+
 def getCuisine():
     print("Cuisines to choose from: Indian, Chinese, Italian")
     chooseCuisine = input("What cuisine are you feeling? Select 'Indian', 'Chinese' or 'Italian'. ")
     if chooseCuisine == "Indian":
-        print("Indian restaurants:")
-        return indian_restaurants
+        # print("Indian restaurants:")
+        return indian_restaurants, indian_restaurant_prices, indian_restaurant_tube_stations
     elif chooseCuisine == "Chinese":
-        print("Chinese restaurants:")
+        # print("Chinese restaurants:")
         return chinese_restaurants
     elif chooseCuisine == "Italian":
         # print("Italian restaurants:")
@@ -154,10 +229,10 @@ activity_tube_stations = {
 def getActivity():
     chooseTheme = input("What theme of activity are you looking for? Please select from 'nightlife' or 'sights' or 'games'. ")
     if chooseTheme == "nightlife":
-        print("Nightlife:")
+        # print("Nightlife:")
         return activities["nightlife"]
     elif chooseTheme == "sights":
-        print("Sights and Landmarks:")
+        # print("Sights and Landmarks:")
         return activities["sights and landmarks"]
     elif chooseTheme == "games":
         # print("Fun and Games:")
