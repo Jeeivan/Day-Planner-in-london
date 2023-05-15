@@ -119,14 +119,17 @@ def getCuisine():
     print("Cuisines to choose from: Indian, Chinese, Italian")
     chooseCuisine = input("What cuisine are you feeling? Select 'Indian', 'Chinese' or 'Italian'. ")
     if chooseCuisine == "Indian":
-        # print("Indian restaurants:")
-        return indian_restaurants, indian_restaurant_prices, indian_restaurant_tube_stations
+        print("Indian restaurants:")
+        for restaurant, data in indian_restaurants.items():
+            print(restaurant, "- Price:", data["price"], "- Tube Station:", data["tube_station"])
     elif chooseCuisine == "Chinese":
-        # print("Chinese restaurants:")
-        return chinese_restaurants
+        print("Chinese restaurants:")
+        for restaurant, data in chinese_restaurants.items():
+            print(restaurant, "- Price:", data["price"], "- Tube Station:", data["tube_station"])
     elif chooseCuisine == "Italian":
-        # print("Italian restaurants:")
-        return italian_restaurants
+        print("Italian restaurants:")
+        for restaurant, data in italian_restaurants.items():
+            print(restaurant, "- Price:", data["price"], "- Tube Station:", data["tube_station"])
     else:
         return "This is not an option! Please select from a cuisine listed above."
 
