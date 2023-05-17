@@ -81,12 +81,20 @@ indian_restaurants = {
     },
     "Dishoom": {
         "price": "£20-30",
-        "tube_station": "Covent Garden"
+        "tube_station": "Covent Garden, Shoreditch High Street, Canary Wharf, King's Cross St. Pancras"
+    },
+    "Masala Zone": {
+        "price": "£15-25",
+        "tube_station": "Earl's Court"
+    },
+    "Chutney Mary": {
+        "price": "£30-40",
+        "tube_station": "Sloane Square"
     }
 }
 
 chinese_restaurants = {
-    "Xi' and impression": {
+    "Xi'an Impression": {
         "price": "£15-25",
         "tube_station": "Highbury & Islington"
     },
@@ -97,6 +105,14 @@ chinese_restaurants = {
     "New Ming": {
         "price": "£10-20",
         "tube_station": "Abbey Wood"
+    },
+    "Duddell's": {
+        "price": "£40-50",
+        "tube_station": "London Bridge"
+    },
+    "Dumplings' Legend": {
+        "price": "£15-25",
+        "tube_station": "Leicester Square"
     }
 }
 
@@ -112,6 +128,60 @@ italian_restaurants = {
     "Ciao Bella": {
         "price": "£20-30",
         "tube_station": "Tottenham Court Road"
+    },
+    "Padella": {
+        "price": "£10-20",
+        "tube_station": "London Bridge"
+    },
+    "Vapiano": {
+        "price": "£7-13",
+        "tube_station": "Tottenham Court Road, London Bridge, Paddington"
+    }
+}
+
+mexican_restaurants = {
+    "Cielo Blanco": {
+        "price": "£15-25",
+        "tube_station": "Leeds"
+    },
+    "Wahaca": {
+        "price": "£10-20",
+        "tube_station": "Covent Garden"
+    },
+    "El Pastor": {
+        "price": "£20-30",
+        "tube_station": "London Bridge"
+    },
+    "DF / Mexico": {
+        "price": "£15-25",
+        "tube_station": "Spitalfields"
+    },
+    "La Bodega Negra": {
+        "price": "£20-30",
+        "tube_station": "Leicester Square"
+    }
+}
+
+japanese_restaurants = {
+    "Nobu": {
+        "price": "£50-100",
+        "tube_station": "Old Street"
+    },
+    "Roka": {
+        "price": "£40-60",
+        "tube_station": "Fitzrovia"
+    },
+    "Yashin Ocean House": {
+        "price": "£30-50",
+        "tube_station": "South Kensington"
+    },
+    "Kikuchi": {
+        "price": "£40-60",
+        "tube_station": "West Hampstead"
+    },
+    "Sushisamba": {
+        "price": "£50-100",
+        "tube_station": "Liverpool Street, Tottenham Court Road"
     }
 }
 
@@ -300,7 +370,7 @@ def menu():
     usersinput = input("Are you looking to do an activity or go to a restuarant or both? Please select 'activity', 'restuarant', or 'both'. ")
     if usersinput == 'activity':
         activities = getActivity()
-        if isinstance(activities, list):
+        if isinstance(activity, list):
             for activity in activities:
                 print("- " + activity)
     elif usersinput == 'restaurant':
