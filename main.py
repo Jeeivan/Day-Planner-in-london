@@ -295,6 +295,14 @@ nightlife_activities = {
     "ABQ London": {
         "price": "£20",
         "tube_station": "Hackney Wick"
+    },
+    "Cahoots": {
+        "price": "£18",
+        "tube_station": "Oxford Circus"
+    },
+    "Jazz Café": {
+        "price": "£20",
+        "tube_station": "Camden Town"
     }
 }
 
@@ -310,6 +318,14 @@ sights_landmarks_activities = {
     "Sky Garden": {
         "price": "£20",
         "tube_station": "Bank"
+    },
+    "Buckingham Palace": {
+        "price": "Free",
+        "tube_station": "Victoria"
+    },
+    "Tower of London": {
+        "price": "£28",
+        "tube_station": "Tower Hill"
     }
 }
 
@@ -325,6 +341,14 @@ fun_games_activities = {
     "Puttshack": {
         "price": "£18",
         "tube_station": "White City"
+    },
+    "Bounce": {
+        "price": "£20",
+        "tube_station": "Old Street"
+    },
+    "Boom Battle Bar": {
+        "price": "£9",
+        "tube_station": "North Greenwich"
     }
 }
 
@@ -333,33 +357,42 @@ def getActivity():
     if chooseTheme == "nightlife":
         print("Nightlife:")
         for activity, data in nightlife_activities.items():
-            print(activity, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"])
+            print(activity, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"], "\n")
     elif chooseTheme == "sights":
+        print("Sights and Landmarks:")
         for activity, data in sights_landmarks_activities.items():
-            print(activity, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"])
+            print(activity, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"], "\n")
     elif chooseTheme == "games":
         print("Fun and Games:")
         for activity, data in fun_games_activities.items():
-            print(activity, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"])
+            print(activity, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"], "\n")
     else:
         return "This is not an option! Please select from 'nightlife' or 'sights' or 'games'.  "
 
 
 def getCuisine():
     print("Cuisines to choose from: Indian, Chinese, Italian")
-    chooseCuisine = input("What cuisine are you feeling? Select 'Indian', 'Chinese' or 'Italian'. ")
+    chooseCuisine = input("What cuisine are you feeling? Select 'Indian', 'Chinese', 'Italian', 'Mexican' or 'Japanese'. ")
     if chooseCuisine == "Indian":
         print("Indian restaurants:")
         for restaurant, data in indian_restaurants.items():
-            print(restaurant, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"])
+            print(restaurant, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"], "\n")
     elif chooseCuisine == "Chinese":
         print("Chinese restaurants:")
         for restaurant, data in chinese_restaurants.items():
-            print(restaurant, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"])
+            print(restaurant, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"], "\n")
     elif chooseCuisine == "Italian":
         print("Italian restaurants:")
         for restaurant, data in italian_restaurants.items():
-            print(restaurant, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"])
+            print(restaurant, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"], "\n")
+    elif chooseCuisine == "Mexican":
+        print("Mexican restaurants:")
+        for restaurant, data in mexican_restaurants.items():
+            print(restaurant, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"], "\n")
+    elif chooseCuisine == "Japanese":
+        print("Japanese restaurants:")
+        for restaurant, data in japanese_restaurants.items():
+            print(restaurant, "- Price:", data["price"], "- Nearest Tube Station:", data["tube_station"], "\n")
     else:
         return "This is not an option! Please select from a cuisine listed above."
 
@@ -369,27 +402,14 @@ def menu():
     print("Disclaimer- All prices are average prices are found online and are subject to change")
     usersinput = input("Are you looking to do an activity or go to a restuarant or both? Please select 'activity', 'restuarant', or 'both'. ")
     if usersinput == 'activity':
-        activities = getActivity()
-        if isinstance(activity, list):
-            for activity in activities:
-                print("- " + activity)
+        getActivity()
     elif usersinput == 'restaurant':
-        cuisine = getCuisine()
-        if isinstance(cuisine, list):
-            for restaurant in cuisine:
-                print("- " + restaurant)
+        getCuisine()
     elif usersinput == 'both':
-        activities = getActivity()
-        cuisine = getCuisine()
-        if isinstance(activities, list) and isinstance(cuisine, list):
-            print("Activities:")
-            for activity in activities:
-                print("- " + activity)
-            print("\nRestaurants:")
-            for restaurant in cuisine:
-                print("- " + restaurant)
-        else:
-            print("Invalid selection!")
+        print("Activities:")
+        getActivity()
+        print("\nRestaurants:")
+        getCuisine()
     else:
         print("This is not an option! Please select 'activity', 'restuarant', or 'both'. ")
     menu()
