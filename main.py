@@ -1,3 +1,7 @@
+import json
+
+plans = {}
+
 restaurants = ("Tayyabs", "Rasa", "Dishoom", "Xi' and impression", "Silk Road", "New Ming", "Trullo", "Manteca", "Ciao Bella")
 
 restaurant_cuisine = {
@@ -185,7 +189,108 @@ japanese_restaurants = {
     }
 }
 
-
+allRestaurants = {
+    "Tayyabs": {
+        "price": "£20-30",
+        "tube_station": "Whitechapel"
+    },
+    "Rasa": {
+        "price": "£15-25",
+        "tube_station": "St. John's Wood"
+    },
+    "Dishoom": {
+        "price": "£20-30",
+        "tube_station": "Covent Garden, Shoreditch High Street, Canary Wharf, King's Cross St. Pancras"
+    },
+    "Masala Zone": {
+        "price": "£15-25",
+        "tube_station": "Earl's Court"
+    },
+    "Chutney Mary": {
+        "price": "£30-40",
+        "tube_station": "Sloane Square"
+    },
+    "Xi'an Impression": {
+        "price": "£15-25",
+        "tube_station": "Highbury & Islington"
+    },
+    "Silk Road": {
+        "price": "£15-25",
+        "tube_station": "London Bridge"
+    },
+    "New Ming": {
+        "price": "£10-20",
+        "tube_station": "Abbey Wood"
+    },
+    "Duddell's": {
+        "price": "£40-50",
+        "tube_station": "London Bridge"
+    },
+    "Dumplings' Legend": {
+        "price": "£15-25",
+        "tube_station": "Leicester Square"
+    },
+    "Trullo": {
+        "price": "£30-40",
+        "tube_station": "Highbury & Islington"
+    },
+    "Manteca": {
+        "price": "£40-50",
+        "tube_station": "Barbican"
+    },
+    "Ciao Bella": {
+        "price": "£20-30",
+        "tube_station": "Tottenham Court Road"
+    },
+    "Padella": {
+        "price": "£10-20",
+        "tube_station": "London Bridge"
+    },
+    "Vapiano": {
+        "price": "£7-13",
+        "tube_station": "Tottenham Court Road, London Bridge, Paddington"
+    },
+    "Cielo Blanco": {
+        "price": "£15-25",
+        "tube_station": "Leeds"
+    },
+    "Wahaca": {
+        "price": "£10-20",
+        "tube_station": "Covent Garden"
+    },
+    "El Pastor": {
+        "price": "£20-30",
+        "tube_station": "London Bridge"
+    },
+    "DF / Mexico": {
+        "price": "£15-25",
+        "tube_station": "Spitalfields"
+    },
+    "Chilango": {
+        "price": "£10-20",
+        "tube_station": "Leicester Square"
+    },
+    "Yashin Ocean House": {
+        "price": "£40-50",
+        "tube_station": "High Street Kensington"
+    },
+    "Nobu": {
+        "price": "£50+",
+        "tube_station": "Old Street"
+    },
+    "Roka": {
+        "price": "£30-40",
+        "tube_station": "Tottenham Court Road"
+    },
+    "Dinings": {
+        "price": "£30-40",
+        "tube_station": "Paddington"
+    },
+    "Sushi Samba": {
+        "price": "£50+",
+        "tube_station": "Liverpool Street"
+    }
+}
 
 
 def getCheapest():
@@ -218,40 +323,6 @@ def getLocation():
         return restaurant_tube_stations[chooseRestaurant]
     else:
         return "You have not selected a restaurant from the list above! Please make sure it is spelt the same way."
-
-# def menu():
-#     print("Welcome to my London food guide!")
-#     print("1. List all restaurants")
-#     print("2. Select cuisine")
-#     print("3. Are times tough?")
-#     print("4. Feeling fancy?")
-#     print("5. Get nearest tube station to restaurant")
-#     usersInput = input("Enter your option here: ")
-#     if usersInput == "1":
-#         for restaurant in restaurants:
-#             print(restaurant)
-#     elif usersInput == "2":
-#         cuisine = getCuisine()
-#         if isinstance(cuisine, list):
-#             for restaurant in cuisine:
-#                 print("- " + restaurant)
-#         else:
-#             print(cuisine)
-#     elif usersInput == "3":
-#         cheapest_restaurants = getCheapest()
-#         for restaurant in cheapest_restaurants:
-#             print(restaurant)
-#     elif usersInput == "4":
-#         fancy_restaurants = getFancy()
-#         for restaurant in fancy_restaurants:
-#             print(restaurant)
-#     elif usersInput == "5":
-#         print(getLocation())
-#     else:
-#         print("That is not an option! Please select a number from the menu above :)")
-#     menu()
-
-# menu()
 
 activities = {
     "nightlife" : ["Be at One", "Moonshine Saloon", "ABQ London"],
@@ -352,6 +423,69 @@ fun_games_activities = {
     }
 }
 
+allActivities = {
+        "Be at One": {
+        "price": "£10",
+        "tube_station": "Covent Garden"
+    },
+    "Moonshine Saloon": {
+        "price": "£15",
+        "tube_station": "Borough"
+    },
+    "ABQ London": {
+        "price": "£20",
+        "tube_station": "Hackney Wick"
+    },
+    "Cahoots": {
+        "price": "£18",
+        "tube_station": "Oxford Circus"
+    },
+    "Jazz Café": {
+        "price": "£20",
+        "tube_station": "Camden Town"
+    },
+        "The Shard": {
+        "price": "£30",
+        "tube_station": "London Bridge"
+    },
+    "London Eye": {
+        "price": "£25",
+        "tube_station": "Waterloo"
+    },
+    "Sky Garden": {
+        "price": "£20",
+        "tube_station": "Bank"
+    },
+    "Buckingham Palace": {
+        "price": "Free",
+        "tube_station": "Victoria"
+    },
+    "Tower of London": {
+        "price": "£28",
+        "tube_station": "Tower Hill"
+    },
+        "Fairground": {
+        "price": "£15",
+        "tube_station": "Oxford Circus"
+    },
+    "Flight Club": {
+        "price": "£25",
+        "tube_station": "Shoreditch High Street"
+    },
+    "Puttshack": {
+        "price": "£18",
+        "tube_station": "White City"
+    },
+    "Bounce": {
+        "price": "£20",
+        "tube_station": "Old Street"
+    },
+    "Boom Battle Bar": {
+        "price": "£9",
+        "tube_station": "North Greenwich"
+    }
+}
+
 def getActivity():
     chooseTheme = input("What theme of activity are you looking for? Please select from 'nightlife' or 'sights' or 'games'. ")
     if chooseTheme == "nightlife":
@@ -396,11 +530,36 @@ def getCuisine():
     else:
         return "This is not an option! Please select from a cuisine listed above."
 
+def makePlan(allRestaurants):
+    name = input("Please enter your name: ")
+    getCuisine()
+    chooseRestaurant = input("Which restaurant would you like to choose? ")
+    getActivity()
+    chooseActivitiy = input("Which activity would you like to do? ")
+
+    if chooseRestaurant in allRestaurants and chooseActivitiy in allActivities:
+        restaurant = allRestaurants[chooseRestaurant]
+        activity = allActivities[chooseActivitiy]
+        plan = f"\nRestaurant: {chooseRestaurant}\nPrice Range: {restaurant['price']}\nNearest Tube Station: {restaurant['tube_station']} \n\nActivity: {chooseActivitiy}\nPrice Range: {activity['price']}\nNearest Tube Station: {activity['tube_station']}"
+        
+        plans["\n" + name + "'s" + " plans"] = plan
+        with open("plans.txt", "w") as outfile:
+            json.dump(plans, outfile)
+        
+        for key, value in plans.items():
+            print(key + ":", value)
+    else:
+        print("The chosen restaurant or activity is not in the list.")
+
+
 
 def menu():
+    global plans
+    with open("plans.txt", "r") as infile:
+        plans = json.load(infile)
     print("Welcome to Jeeivan's guide for going out in London!")
     print("Disclaimer- All prices are average prices are found online and are subject to change")
-    usersinput = input("Are you looking to do an activity or go to a restuarant or both? Please select 'activity', 'restuarant', or 'both'. ")
+    usersinput = input("Are you looking to do an activity or go to a restuarant, both or would you like to make plans to be saved? Please select 'activity', 'restuarant', 'both' or 'plan'. ")
     if usersinput == 'activity':
         getActivity()
     elif usersinput == 'restaurant':
@@ -410,8 +569,10 @@ def menu():
         getActivity()
         print("\nRestaurants:")
         getCuisine()
+    elif usersinput == 'plan':
+        makePlan(allRestaurants)
     else:
-        print("This is not an option! Please select 'activity', 'restuarant', or 'both'. ")
+        print("This is not an option! Please select 'activity', 'restuarant', 'both' or 'plan'. ")
     menu()
 
 menu()
