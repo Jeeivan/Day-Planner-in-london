@@ -1,5 +1,28 @@
 import json
 
+import googlemaps
+
+api_key = 'AIzaSyA3I5BDKZLboqpMrouuQctUW065zB6R2R0'
+gmaps = googlemaps.Client(key=api_key)
+
+place_name = 'New Ming'
+
+places_result = gmaps.places(place_name)
+place_id = places_result['results'][0]['place_id']
+
+place = gmaps.place(place_id = place_id)
+
+reviews = [] 
+
+for i in range(5):
+    text = place['result']['reviews'][0]['text']
+    rating = place['result']['reviews'][0]['rating']
+
+    reviews.append({'rating':rating,'text':text
+                    })
+
+print(reviews)
+
 plans = {}
 
 restaurants = ("Tayyabs", "Rasa", "Dishoom", "Xi' and impression", "Silk Road", "New Ming", "Trullo", "Manteca", "Ciao Bella")
@@ -575,4 +598,4 @@ def menu():
         print("This is not an option! Please select 'activity', 'restuarant', 'both' or 'plan'. ")
     menu()
 
-menu()
+# menu()
