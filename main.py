@@ -572,11 +572,20 @@ gmaps = googlemaps.Client(key=api_key)
 #     reviews.append({'rating':rating,'text':text
 #                     })
 
-# print(reviews)
+# for review in reviews:
+#     print('Rating:', review['rating'])
+#     print('Review:', review['text'])
+#     print('---')
 
 def getReviews():
-    print(allRestaurants)
+    for key in allRestaurants:
+        print(key)
     chooseRes = input("Which restaurant would you like to see reviews for? ")
+
+    if chooseRes not in allRestaurants:
+        print("This restaurant was not found! Please select from one of the restaurants listed.")
+        return
+    
     place_name = chooseRes
     places_result = gmaps.places(place_name)
     place_id = places_result['results'][0]['place_id']
@@ -588,7 +597,13 @@ def getReviews():
         text = place['result']['reviews'][0]['text']
         rating = place['result']['reviews'][0]['rating']
         reviews.append({'rating':rating,'text':text})
-    print(reviews)
+    
+    print(place_name, 'Reviews: \n')
+
+    for review in reviews:
+        print('Rating:', review['rating'])
+        print('Review:', review['text'])
+        print('---')
 
 def menu():
     global plans
@@ -596,7 +611,7 @@ def menu():
         plans = json.load(infile)
     print("Welcome to Jeeivan's guide for going out in London!")
     print("Disclaimer- All prices are average prices are found online and are subject to change")
-    usersinput = input("Are you looking to do an activity or go to a restuarant, both ,plans to be saved or would you like to see some reviews of a restaurant of your choosing? Please select 'activity', 'restuarant', 'both', 'plan' or 'reviews'. ")
+    usersinput = input("Are you looking to do an activity or go to a restuarant, both, plans to be saved or would you like to see some reviews of a restaurant of your choosing? Please select 'activity', 'restuarant', 'both', 'plan' or 'reviews'. ")
     if usersinput == 'activity':
         getActivity()
     elif usersinput == 'restaurant':
@@ -614,4 +629,4 @@ def menu():
         print("This is not an option! Please select 'activity', 'restuarant', 'both', 'plan' or 'reviews'. ")
     menu()
 
-# menu()
+menu()
