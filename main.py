@@ -2,27 +2,6 @@ import json
 
 import googlemaps
 
-api_key = 'AIzaSyA3I5BDKZLboqpMrouuQctUW065zB6R2R0'
-gmaps = googlemaps.Client(key=api_key)
-
-place_name = 'New Ming'
-
-places_result = gmaps.places(place_name)
-place_id = places_result['results'][0]['place_id']
-
-place = gmaps.place(place_id = place_id)
-
-reviews = [] 
-
-for i in range(5):
-    text = place['result']['reviews'][0]['text']
-    rating = place['result']['reviews'][0]['rating']
-
-    reviews.append({'rating':rating,'text':text
-                    })
-
-print(reviews)
-
 plans = {}
 
 restaurants = ("Tayyabs", "Rasa", "Dishoom", "Xi' and impression", "Silk Road", "New Ming", "Trullo", "Manteca", "Ciao Bella")
@@ -574,7 +553,42 @@ def makePlan(allRestaurants):
     else:
         print("The chosen restaurant or activity is not in the list.")
 
+api_key = 'AIzaSyA3I5BDKZLboqpMrouuQctUW065zB6R2R0'
+gmaps = googlemaps.Client(key=api_key)
 
+# place_name = 'New Ming'
+
+# places_result = gmaps.places(place_name)
+# place_id = places_result['results'][0]['place_id']
+
+# place = gmaps.place(place_id = place_id)
+
+# reviews = [] 
+
+# for i in range(5):
+#     text = place['result']['reviews'][0]['text']
+#     rating = place['result']['reviews'][0]['rating']
+
+#     reviews.append({'rating':rating,'text':text
+#                     })
+
+# print(reviews)
+
+def getReviews():
+    print(allRestaurants)
+    chooseRes = input("Which restaurant would you like to see reviews for? ")
+    place_name = chooseRes
+    places_result = gmaps.places(place_name)
+    place_id = places_result['results'][0]['place_id']
+    place = gmaps.place(place_id = place_id)
+
+    reviews = []
+
+    for i in range(5):
+        text = place['result']['reviews'][0]['text']
+        rating = place['result']['reviews'][0]['rating']
+        reviews.append({'rating':rating,'text':text})
+    print(reviews)
 
 def menu():
     global plans
@@ -582,7 +596,7 @@ def menu():
         plans = json.load(infile)
     print("Welcome to Jeeivan's guide for going out in London!")
     print("Disclaimer- All prices are average prices are found online and are subject to change")
-    usersinput = input("Are you looking to do an activity or go to a restuarant, both or would you like to make plans to be saved? Please select 'activity', 'restuarant', 'both' or 'plan'. ")
+    usersinput = input("Are you looking to do an activity or go to a restuarant, both ,plans to be saved or would you like to see some reviews of a restaurant of your choosing? Please select 'activity', 'restuarant', 'both', 'plan' or 'reviews'. ")
     if usersinput == 'activity':
         getActivity()
     elif usersinput == 'restaurant':
@@ -594,8 +608,10 @@ def menu():
         getCuisine()
     elif usersinput == 'plan':
         makePlan(allRestaurants)
+    elif usersinput == 'reviews':
+        getReviews()
     else:
-        print("This is not an option! Please select 'activity', 'restuarant', 'both' or 'plan'. ")
+        print("This is not an option! Please select 'activity', 'restuarant', 'both', 'plan' or 'reviews'. ")
     menu()
 
 # menu()
