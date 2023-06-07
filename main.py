@@ -553,7 +553,7 @@ def makePlan(allRestaurants):
     else:
         print("The chosen restaurant or activity is not in the list.")
 
-api_key = 'AIzaSyA3I5BDKZLboqpMrouuQctUW065zB6R2R0'
+# api_key = 'Input API Key here' 
 gmaps = googlemaps.Client(key=api_key)
 
 # place_name = 'New Ming'
@@ -594,8 +594,8 @@ def getReviews():
     reviews = []
 
     for i in range(5):
-        text = place['result']['reviews'][0]['text']
-        rating = place['result']['reviews'][0]['rating']
+        text = place['result']['reviews'][i]['text']
+        rating = place['result']['reviews'][i]['rating']
         reviews.append({'rating':rating,'text':text})
     
     print(place_name, 'Reviews: \n')
